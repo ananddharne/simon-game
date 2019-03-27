@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+  <title>Simon® Game v.9</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.6/vuetify.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.15.1/sweetalert2.min.css">
+
+  <style>
+    /* Hide side scrollbar if content does not need it */
+    html {
+      overflow-y: auto; 
+    }
+    
+    .application {
+      font-family: 'Fira Mono', sans-serif;
+      text-align: center;
+    }
+
+    /* Full screen background */
+    #app {
+      /* Location of the image */
+      background-image: url(https://raw.githubusercontent.com/ijklim/simon-game/gh-pages/assets/img/bg.png);
+
+      /* Background image is centered vertically and horizontally at all times */
+      background-position: center center;
+
+      /* Background image doesn't tile */
+      background-repeat: no-repeat;
+
+      /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+      background-attachment: fixed;
+
+      /* This is what makes the background image rescale based
+     on the container's size */
+      background-size: cover;
+
+      /* Set a background color that will be displayed
+     while the background image is loading */
+      background-color: #fff;
+    }
+
+    .game-button {
+      height: 150px;
+      border-radius: 5px;
+    }
+
+    /* Overwrite default card background, used by game-pad */
+    .theme--light .card {
+      border-radius: 5px;
+      background-image: url(https://raw.githubusercontent.com/ijklim/simon-game/gh-pages/assets/img/bg--game-pad.jpg);
+    }
+
+    /* SweetAlert2 */
+    .swal2-container {
+      font-family: 'Fira Mono';
+    }
+  </style>
+</head>
+
+<body>
+  <!-- https://codepen.io/ivanlim/full/LdVOme -->
+  <!-- Vuetify Material color palette: https://vuetifyjs.com/en/style/colors -->
+  <v-app id="app">
+    <v-container mt-5>
+      <v-layout wrap justify-center>
+        <v-flex xs12 class="mb-5 display-1">
+          <h2 v-text="appName"></h2>
+        </v-flex>
+
+        <v-flex xs12 sm10 md8 lg6 class="mb-5">
+          <game-pad></game-pad>
+        </v-flex>
+
+      </v-layout>
+    </v-container>
+  </v-app>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.6/vuetify.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.15.1/sweetalert2.min.js"></script>
+  <script src="components/game-buttons.js"></script>
+  <script src="components/game-pad.js"></script>
+  <script type='text/javascript'>
+    let v = new Vue({
+      el: '#app',
+      data () {
+        return {
+          appName: 'Simon® Game'
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
